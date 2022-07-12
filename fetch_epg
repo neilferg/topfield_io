@@ -1,0 +1,9 @@
+#!/bin/sh
+
+DEV=$(./getTopfieldDev)
+if [ -z ${DEV} ]; then
+    echo "No device found"
+    exit 1
+fi
+
+sudo ./puppy -d ${DEV} -c get 'ProgramFiles\Auto Start\EPGnavigator_tv.org' EPGnavigator_tv.org

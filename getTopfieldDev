@@ -1,0 +1,1 @@
+lsusb -d 11db:1000 | sed -e 's-Bus -/dev/bus/usb/-' -e 's- Device -/-' -e 's/:.*//'

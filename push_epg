@@ -1,0 +1,13 @@
+#!/bin/sh
+
+DEV=$(./getTopfieldDev)
+if [ -z ${DEV} ]; then
+    echo "No device found"
+    exit 1
+fi
+
+sudo ./puppy -d ${DEV} -c delete 'ProgramFiles\Auto Start\EPGnavigator_tv.org'
+
+if [ -e EPGnavigator_tv.org ]; then
+    sudo ./puppy -d ${DEV} -c put EPGnavigator_tv.org 'ProgramFiles\Auto Start\EPGnavigator_tv.org'
+fi
